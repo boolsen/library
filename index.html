@@ -8,6 +8,16 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <button class="new-book" onclick="newBookModal()">Add new book</button>
     <div class="library-container"></div>
+    <div class="modal hidden">
+        <form action="#">
+            <input type="text" id="title" placeholder="Title">
+            <input type="text" placeholder="author" id="author">
+            <input type="text" placeholder="Page count" id="page-count">
+            <input type="text" placeholder="Have you read the book?" id="read">
+            <button class="submit" type="submit">Add book</button>
+        </form>
+    </div>
 </body>
 </html>

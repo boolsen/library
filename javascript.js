@@ -1,4 +1,5 @@
 const myLibrary = [];
+let container;
 
 function Book(title, author, pageCount, read) {
 
@@ -13,7 +14,7 @@ function Book(title, author, pageCount, read) {
     this.id = crypto.randomUUID();
 
     this.info = function() {
-        return this.title + " by " + this.author + ", " + this.pages + ", " + this.alreadyRead;
+        return this.title + " by " + this.author + ", " + this.pageCount.toString() + ", " + this.alreadyRead;
     }
 }
 
@@ -23,7 +24,19 @@ function addBookToLibrary(title, author, pageCount, read) {
 }
 
 function displayLibrary() {
-    for (book in myLibrary) {
-        console.log(book.info());
+    for (let i= 0; i < myLibrary.length; i++) {
+        let book = myLibrary[i];
+        let element = document.createElement("div");
+        element.classList.toggle("card");
+        element.textContent = book.info();
+        container.appendChild(element);
     }
+}
+
+document.addEventListener("DOMContentLoaded", (event) => {
+    container = document.querySelector(".library-container");
+})
+
+function newBookModal() {
+    
 }

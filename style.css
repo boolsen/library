@@ -2,3 +2,44 @@
     margin: 0;
     padding: 0;
 }
+
+body {
+    padding: 1rem;
+}
+
+.library-container {
+    height: 100svh;
+    width: 100svw;
+    padding: 100px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;
+}
+
+.card {
+    aspect-ratio: 1;
+    width: 200px;
+    border: 2px solid rgb(199, 199, 199);
+    border-radius: 10%;
+    display: flex;
+    align-items: flex-end;
+    padding: 40px;
+    box-shadow: inset 10px 0px rgb(255, 255, 133);
+}
+
+button {
+    --width: 10rem;
+    width: var(--width);
+    aspect-ratio: 3;
+    border-radius: calc(var(--width) / 20);
+}
+
+.hidden {
+    display: none;
+}
+
+.modal {
+    position: absolute;
+    width: 50
+}
+
