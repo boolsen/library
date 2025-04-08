@@ -17,13 +17,13 @@ function Book(title, author, pageCount, read) {
     }
 }
 
-function addBookToLibrary(title) {
-    let book = new Book;
+function addBookToLibrary(title, author, pageCount, read) {
+    let book = new Book(title, author, pageCount, read);
     myLibrary.push(book);
 }
 
 function displayLibrary() {
     for (book in myLibrary) {
-        console.log(book.getTitle());
+        console.log(book.info());
     }
 }
