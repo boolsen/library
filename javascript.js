@@ -1,5 +1,7 @@
 const myLibrary = [];
 let container;
+let modal;
+let toggleDiv;
 
 function Book(title, author, pageCount, read) {
 
@@ -35,8 +37,14 @@ function displayLibrary() {
 
 document.addEventListener("DOMContentLoaded", (event) => {
     container = document.querySelector(".library-container");
+    modal = document.querySelector(".modal");
+    toggleDiv = document.querySelector(".toggle");
 })
 
+function toggleHidden(element) {
+    element.classList.toggle("hidden");
+}
+
 function newBookModal() {
-    
+    toggleHidden(toggleDiv);
 }
