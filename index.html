@@ -9,15 +9,17 @@
 </head>
 <body>
     <button class="new-book" onclick="newBookModal()">Add new book</button>
+    <button class="new-book" onclick="displayLibrary()">Display library</button>
     <div class="library-container">
     </div>
     <div class="toggle hidden">
         <form class="modal" action="#">
-            <input type="text" id="title" placeholder="Title">
-            <input type="text" placeholder="author" id="author">
-            <input type="text" placeholder="Page count" id="page-count">
-            <input type="text" placeholder="Have you read the book?" id="read">
-            <button class="submit" type="submit">Add book</button>
+            <input type="text" id="title" placeholder="Title" required>
+            <input type="text" placeholder="author" id="author" required>
+            <input type="text" placeholder="Page count" id="page-count" required>
+            <input type="text" placeholder="Have you read the book?" id="read" required>
+            <button class="submit" type="submit" onclick="addBookFromModal()">Add book</button>
+            <button class="exit-btn" onclick="closeModal()">X</button>
         </form>
     </div>
 </body>
