@@ -36,6 +36,9 @@ function displayLibrary() {
         let element = document.createElement("div");
         element.classList.toggle("card");
         element.textContent = book.info();
+        let closeBtn = document.createElement("button");
+        closeBtn.classList.add("exit-btn");
+        element.appendChild(closeBtn);
         container.appendChild(element);
     }
 }
