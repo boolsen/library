@@ -36,11 +36,30 @@ function displayLibrary() {
         let element = document.createElement("div");
         element.classList.toggle("card");
         element.textContent = book.info();
-        let closeBtn = document.createElement("button");
-        closeBtn.classList.add("exit-btn");
-        element.appendChild(closeBtn);
+        element.id = book.id;
+        element.appendChild(createCloseBtn());
         container.appendChild(element);
     }
+}
+
+function createCloseBtn () {
+    let closeBtn = document.createElement("button");
+    closeBtn.classList.add("exit-btn");
+    closeBtn.textContent = "X";
+    closeBtn.addEventListener("click", removeBookFromLibrary);
+    return closeBtn;
+}
+
+function removeBookFromLibrary() {
+    for (let i= 0; i < myLibrary.length; i++) {
+        let book = myLibrary[i];
+        console.log(this.parentElement.id);
+        if (book.id === this.parentElement.id) {
+            myLibrary.splice(i,1);
+            break;
+        }
+    }
+    displayLibrary();
 }
 
 function removeLibraryDisplay() {

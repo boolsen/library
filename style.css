@@ -67,7 +67,8 @@ button {
     height: 100svh;
     left: 0;
     top: 0;
-    background: hvar(--dark-primary-seethrough);
+    background: var(--dark-primary-seethrough);
+    z-index: 1000;
 }
 
 .modal {
