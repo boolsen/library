@@ -35,11 +35,44 @@ function displayLibrary() {
         let book = myLibrary[i];
         let element = document.createElement("div");
         element.classList.toggle("card");
-        element.textContent = book.info();
         element.id = book.id;
+        element.appendChild(createBookInfoElement(i));
         element.appendChild(createCloseBtn());
+        element.appendChild(createChangeReadStatusBtn());
         container.appendChild(element);
     }
+}
+
+function createBookInfoElement(idx) {
+    let book = myLibrary[idx];
+    let element = document.createElement("p");
+    element.classList.add("book-info");
+    element.innerHTML = `Title: ${book.title}
+Author: ${book.author}
+Page count: ${book.pageCount}
+Read status: ${book.alreadyRead}`
+    return element;
+    
+}
+
+function createChangeReadStatusBtn() {
+    let element = document.createElement("button");
+    element.classList.add("change-read");
+    element.textContent = "Change read status"
+    element.addEventListener("click", changeReadStatus);
+    return element;
+}
+
+function changeReadStatus() {
+    let newStatus = window.prompt("Have you read the book?", "");
+    for (let i= 0; i < myLibrary.length; i++) {
+        let book = myLibrary[i];
+        if (book.id === this.parentElement.id) {
+            book.alreadyRead = newStatus;
+            break;
+        }
+    }
+    displayLibrary();
 }
 
 function createCloseBtn () {
@@ -53,7 +86,6 @@ function createCloseBtn () {
 function removeBookFromLibrary() {
     for (let i= 0; i < myLibrary.length; i++) {
         let book = myLibrary[i];
-        console.log(this.parentElement.id);
         if (book.id === this.parentElement.id) {
             myLibrary.splice(i,1);
             break;
