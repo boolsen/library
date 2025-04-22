@@ -7,7 +7,7 @@ let authorInput;
 let pageCountInput;
 let readInput;
 
-function Book(title, author, pageCount, read) {
+/* function Book(title, author, pageCount, read) {
 
     if (!new.target) {
         throw Error("You must use the 'new' operator to call the constructor");
@@ -22,11 +22,28 @@ function Book(title, author, pageCount, read) {
     this.info = function() {
         return this.title + " by " + this.author + ", " + this.pageCount.toString() + ", " + this.alreadyRead;
     }
+} */
+
+class Book {
+    constructor (title, author, pageCount, read) {
+        this.title = title;
+        this.author = author;
+        this.pageCount = pageCount;
+        this.alreadyRead = read;
+        this.id = crypto.randomUUID();
+    }
+
+    info = function() {
+        return this.title + " by " + this.author + ", " + this.pageCount.toString() + ", " + this.alreadyRead;
+    }
+    
 }
 
-function addBookToLibrary(title, author, pageCount, read) {
+function addBookToLibrary(title, author, pageCount, read) {    
     let book = new Book(title, author, pageCount, read);
+    
     myLibrary.push(book);
+    console.log(myLibrary);
 }
 
 function displayLibrary() {
@@ -48,9 +65,9 @@ function createBookInfoElement(idx) {
     let element = document.createElement("p");
     element.classList.add("book-info");
     element.innerHTML = `Title: ${book.title}
-Author: ${book.author}
-Page count: ${book.pageCount}
-Read status: ${book.alreadyRead}`
+    Author: ${book.author}
+    Page count: ${book.pageCount}
+    Read status: ${book.alreadyRead}`
     return element;
     
 }
